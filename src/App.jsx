@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1>Sign in</h1>
+      <h1>Conecte se</h1>
       <div className="card">
         <Login/>
       </div>
