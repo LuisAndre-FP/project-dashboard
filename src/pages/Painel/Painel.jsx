@@ -5,7 +5,7 @@ function Painel() {
   return (
     <>
       <Header />
-      <p>Testando painel</p>
+      <p>Testando o painel</p>
     </>
   );
 }
