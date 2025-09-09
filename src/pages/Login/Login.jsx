@@ -89,7 +89,7 @@ function Login() {
             </button>
           </form>
 
-          <div className="Divider">ou continue com</div>
+          <div className="divider">ou continue com</div>
           <div className="socialLogins">
             <img src={google} alt="Google logo" />
             <img src={Facebook} alt="Facebook logo" />
