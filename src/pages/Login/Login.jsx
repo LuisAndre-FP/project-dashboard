@@ -6,6 +6,8 @@ import apple from "../../assets/apple.svg";
 import Facebook from "../../assets/facebook.svg";
 import google from "../../assets/google.svg";
 import Logo from "../../assets/logo.svg";
+import MeuGestor from "../../assets/MeuGestor.png";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Login.style.scss";
 
 function Login() {
@@ -13,6 +15,7 @@ function Login() {
   const [senha, setSenha] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -39,65 +42,81 @@ function Login() {
       setLoading(false);
     }
   }
+
   return (
-    <>
-      <div className="loginPage">
-        <div className="loginPage__header">
-          <img src={Logo} alt="Logo" />
+    <div className="pagina">
+      <div className="container-principal">
+        <div className="area-esquerda">
+          <div className="logo-container">
+            <img src={Logo} className="logo" alt="Logo" />
+          </div>
+
+          <div className="texto-esquerda">
+            <h1 className="titulo">
+              <b>Faça seu Login em</b>
+            </h1>
+            <h2 className="subtitulo">
+              <img src={MeuGestor} alt="Meu Gestor" />
+            </h2>
+            <p className="descricao">
+              Se você ainda não tem uma conta
+              <br />
+              Você pode se <a href="/register">registrar aqui</a>
+            </p>
+          </div>
+
+          <img src={saly} alt="Ilustração" className="imagem-personagem" />
         </div>
-        <div className="loginPage__content">
-          <h1>Faça seu login</h1>
-          <h2>
-            <span className="name-primary">Meu</span>
-            <span className="name-secondary">Gestor</span>
-          </h2>
 
-          <p>
-            Se você ainda não possui uma conta. <br />
-            Você pode se <a href="/register">Registrar aqui!</a>
-          </p>
+        <div className="area-direita">
+          <div className="caixa-login">
+            <h3 className="titulo-form">Login</h3>
 
-          <img src={saly} alt="ilustração" />
-        </div>
+            <form onSubmit={handleSubmit} className="formulario-login">
+              <input
+                type="text"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="campo-texto"
+              />
+              <div className="campo-senha">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Senha"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  className="campo-texto"
+                />
+                <span
+                  className="icone-olho"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+                </span>
+              </div>
 
-        <div className="loginPage__formContainer">
-          <h3>Login</h3>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              name="senha"
-              placeholder="Senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-            />
+              {error && <p className="mensagem-erro">{error}</p>}
 
-            <div className="forgotPassword">
-              <a href="/forgot-password">Esqueci minha senha</a>
-            </div>
+              <p className="link-esqueci-senha">Esqueceu sua senha?</p>
 
-            {error && <p className="error">{error}</p>}
+              <button type="submit" className="botao-login" disabled={loading}>
+                {loading ? "Entrando..." : "Login"}
+              </button>
 
-            <button type="submit" disabled={loading}>
-              {loading ? "Entrando..." : "Login"}
-            </button>
-          </form>
+              <p className="texto-ou">ou continue com</p>
 
-          <div className="divider">ou continue com</div>
-          <div className="socialLogins">
-            <img src={google} alt="Google logo" />
-            <img src={Facebook} alt="Facebook logo" />
-            <img src={apple} alt="Apple logo" />
+              <div className="area-redes">
+                <img src={Facebook} alt="Facebook" className="icone-rede" />
+                <img src={apple} alt="Apple" className="icone-rede" />
+                <img src={google} alt="Google" className="icone-rede" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
 export default Login;

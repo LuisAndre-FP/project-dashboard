@@ -1,0 +1,64 @@
+.productsContent {
+  margin-left: 220px;
+  margin-top: 45px;
+  padding: 45px;
+  color: #1f384c;
+  background-color: white;
+}
+
+.paginationControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+
+  .itensPerPage {
+    select {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  }
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #eef1f4;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #3d3d3d;
+  }
+}
+
+.actionIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  .editIcon,
+  .deleteIcon,
+  .moreIcon {
+    cursor: pointer;
+    font-size: 18px;
+    color: #1f384c;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #007bff;
+    }
+  }
+}

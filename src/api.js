@@ -9,3 +9,14 @@ api.interceptors.request.use((config) => {
   if (t) config.headers.Authorization = `Bearer $(t)`;
   return config;
 });
+
+export const apiProducts = axios.create({
+  baseURL: "https://api-node-test-6c4b0a5d4c87.herokuapp.com/",
+  timeout: 1000,
+});
+
+apiProducts.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});

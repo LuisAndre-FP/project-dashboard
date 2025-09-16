@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./HeaderComponent.scss";
 import { FaSearch, FaBell } from "react-icons/fa";
-import logo from "../../assets/logo.svg";
-import thinking from "../../assets/thinking.png";
+import logo from "../../assets/logo.png";
+import { FaUserCircle } from "react-icons/fa";
+import { FaHamburger } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
 
 function Header() {
   const [username, setUsername] = useState("");
@@ -18,13 +20,8 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="headerLogo">
-        <img src={logo} alt="MeuGestor" />
-        <h1>MeuGestor</h1>
-      </div>
-
       <div className="headerMensagem">
-        <img src={thinking} alt="Avatar" className="Avatar" />
+        <FaUserCircle className="Avatar" />
         <h1>Olá, {username}</h1>
       </div>
 
@@ -34,7 +31,15 @@ function Header() {
       </div>
 
       <div className="headerActions">
-        <div className="company"></div>
+        <div className="company">
+          <section className="companyInfo">
+            <button className="companyButton">
+              <FaHamburger />
+            </button>
+            <span>Burger King</span>
+            <IoIosArrowDown className="arrow" />
+          </section>
+        </div>
 
         <div className="notifications">
           <FaBell className="bell" />

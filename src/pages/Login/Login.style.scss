@@ -1,158 +1,243 @@
-.loginPage {
+@use "../../styles/variables.scss" as *;
+
+.pagina {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
+}
+
+.container-principal {
+  display: flex;
   width: 100%;
-  padding: 2rem 4rem;
+  height: 100%;
   background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+  gap: 64px;
+}
 
-  &__content {
-    flex: 1;
-    display: flex;
+.area-esquerda {
+  flex: 0 0 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  margin-top: 160px;
+  margin-left: 100px;
+}
+
+.logo-container {
+  height: 150px;
+  width: 150px;
+  font-weight: bold;
+  color: #1b1f24;
+
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.titulo {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #1b1f24;
+  margin-bottom: 12px;
+}
+
+.subtitulo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2c2f33;
+}
+
+.descricao {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.descricao a {
+  color: #4a3aff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.descricao a:hover {
+  color: #372dbd;
+}
+
+.imagem-personagem {
+  width: 200px;
+  align-self: flex-end;
+  margin-bottom: 0px;
+}
+
+.area-direita {
+  flex: 0 0 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: white;
+}
+
+.caixa-login {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  max-width: 380px;
+
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.titulo-form {
+  font-size: 18px;
+  color: #2a226d;
+  text-align: left;
+  font-weight: 600;
+}
+
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.campo-texto {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: #f9f9fb;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease, background 0.3s ease;
+  background-color: #d8e0fe;
+
+  &::placeholder {
+    color: #3d64ff;
+  }
+}
+
+.campo-texto:focus {
+  border-color: #4a3aff;
+  background: #fff;
+}
+
+.campo-senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.campo-senha .campo-texto {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.icone-olho {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #3d64ff;
+  transition: color 0.2s;
+}
+
+.icone-olho:hover {
+  color: #4a3aff;
+}
+
+.link-esqueci-senha {
+  text-align: right;
+  font-size: 12px;
+  color: #777;
+  cursor: pointer;
+  color: #3d64ff;
+}
+
+.link-esqueci-senha:hover {
+  color: #4a3aff;
+}
+
+.botao-login {
+  padding: 14px;
+  background-color: #3d64ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.botao-:hover {
+  background-color: #372dbd;
+  transform: scale(1.02);
+}
+
+.texto-ou {
+  text-align: center;
+  font-size: 13px;
+  color: #2a226d;
+}
+
+.area-redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icone-rede {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icone-rede:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .container-principal {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #000;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-
-      .name-primary {
-        color: #000;
-      }
-
-      .name-secondary {
-        color: #3b49df;
-      }
-    }
-
-    p {
-      font-size: 0.95rem;
-      color: #444;
-      margin-top: 1rem;
-
-      a {
-        color: #3b49df;
-        font-weight: 600;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    img {
-      max-width: 350px;
-      margin-top: 2rem;
-    }
+    height: auto;
   }
 
-  &__formContainer {
-    flex: 1;
-    max-width: 500px;
-    background: #fff;
-    padding: 3rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  .area-esquerda {
+    padding: 24px;
+  }
+
+  .area-esquerda {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+  }
 
-    h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #1a1a40;
-    }
+  .imagem-personagem {
+    height: 100px;
+    width: 100px;
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+  .area-direita {
+    background: none;
+    padding: 24px;
+  }
 
-      input {
-        padding: 0.9rem;
-        border-radius: 8px;
-        border: none;
-        background: #e8edff;
-        font-size: 1rem;
-        outline: none;
+  .caixa-login {
+    box-shadow: none;
+    padding: 0;
+  }
 
-        &:focus {
-          border: 1px solid #3b49df;
-          background: #f0f4ff;
-        }
-      }
-
-      .error {
-        color: #d32f2f;
-        font-size: 0.9rem;
-      }
-
-      button {
-        background: #3b49df;
-        color: #fff;
-        border: none;
-        padding: 1rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s ease;
-
-        &:hover {
-          background: #2a36c7;
-        }
-      }
-    }
-
-    .forgot-password {
-      text-align: right;
-      font-size: 0.9rem;
-      margin-top: -0.5rem;
-
-      a {
-        color: #3b49df;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    .divider {
-      text-align: center;
-      margin: 1.5rem 0;
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    .social-login {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-
-      img {
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
+  .container-text-box {
+    display: flex;
+    padding-left: 200px;
   }
 }
