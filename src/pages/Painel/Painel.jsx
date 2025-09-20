@@ -9,6 +9,7 @@ function Painel() {
       <Sidebar />
       <div className="painelContent">
         <h1>Dashboard</h1>
+        <p>Bem-vindo ao painel de controle!</p>
       </div>
     </>
   );
