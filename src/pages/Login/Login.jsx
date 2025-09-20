@@ -88,10 +88,10 @@ function Login() {
                   onChange={(e) => setSenha(e.target.value)}
                   className="campo-texto"
                 />
-                <span
-                  className="icone-olho"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
+                  <span
+                    className="icone-olho"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
                   {showPassword ? <FaEye /> : <FaEyeSlash />}
                 </span>
               </div>
