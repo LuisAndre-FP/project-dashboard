@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./HeaderComponent.scss";
 import { FaSearch, FaBell } from "react-icons/fa";
-import logo from "../../assets/logo.png";
 import { FaUserCircle } from "react-icons/fa";
 import { FaHamburger } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
